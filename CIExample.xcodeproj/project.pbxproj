@@ -146,6 +146,7 @@
 				TargetAttributes = {
 					A619D4341C2413A1005F1A75 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = XA8U8K5RRK;
 					};
 					A619D4481C2413A1005F1A75 = {
 						CreatedOnToolsVersion = 7.2;
@@ -284,7 +285,7 @@
 			};
 			name = Debug;
 		};
-		A619D4511C2413A1005F1A75 /* Release */ = {
+		A619D4511C2413A1005F1A75 /* App Store */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -319,29 +320,31 @@
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
-			name = Release;
+			name = "App Store";
 		};
 		A619D4531C2413A1005F1A75 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = CIExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.macoscope.CIExample;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.macoscope.ci-example.development";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		A619D4541C2413A1005F1A75 /* Release */ = {
+		A619D4541C2413A1005F1A75 /* App Store */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				INFOPLIST_FILE = CIExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.macoscope.CIExample;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.macoscope.ci-example.app-store";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
-			name = Release;
+			name = "App Store";
 		};
 		A619D4561C2413A1005F1A75 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -355,7 +358,7 @@
 			};
 			name = Debug;
 		};
-		A619D4571C2413A1005F1A75 /* Release */ = {
+		A619D4571C2413A1005F1A75 /* App Store */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -365,7 +368,75 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CIExample.app/CIExample";
 			};
-			name = Release;
+			name = "App Store";
+		};
+		A6940C7B1C2465C70085B698 /* Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = "Ad Hoc";
+		};
+		A6940C7C1C2465C70085B698 /* Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				INFOPLIST_FILE = CIExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.macoscope.ci-example.ad-hoc";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = "Ad Hoc";
+		};
+		A6940C7D1C2465C70085B698 /* Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = CIExampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.macoscope.CIExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CIExample.app/CIExample";
+			};
+			name = "Ad Hoc";
 		};
 /* End XCBuildConfiguration section */
 
@@ -374,26 +445,31 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A619D4501C2413A1005F1A75 /* Debug */,
-				A619D4511C2413A1005F1A75 /* Release */,
+				A6940C7B1C2465C70085B698 /* Ad Hoc */,
+				A619D4511C2413A1005F1A75 /* App Store */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = "App Store";
 		};
 		A619D4521C2413A1005F1A75 /* Build configuration list for PBXNativeTarget "CIExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A619D4531C2413A1005F1A75 /* Debug */,
-				A619D4541C2413A1005F1A75 /* Release */,
+				A6940C7C1C2465C70085B698 /* Ad Hoc */,
+				A619D4541C2413A1005F1A75 /* App Store */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "App Store";
 		};
 		A619D4551C2413A1005F1A75 /* Build configuration list for PBXNativeTarget "CIExampleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A619D4561C2413A1005F1A75 /* Debug */,
-				A619D4571C2413A1005F1A75 /* Release */,
+				A6940C7D1C2465C70085B698 /* Ad Hoc */,
+				A619D4571C2413A1005F1A75 /* App Store */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "App Store";
 		};
 /* End XCConfigurationList section */
 	};
