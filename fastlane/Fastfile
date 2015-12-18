@@ -1,4 +1,4 @@
-fastlane_version "1.48.0"
+fastlane_version "1.47.0"
 
 default_platform :ios
 
@@ -6,7 +6,7 @@ platform :ios do
 
   desc "Runs all the tests"
   lane :test do
-    scan(device: "iPhone 6s")
+    scan(device: "iPhone 6s (9.2)")
   end
 end
 
