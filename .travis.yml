@@ -1,5 +1,7 @@
 language: objective-c
 osx_image: xcode7.2
+before_script:
+- openssl aes-256-cbc -k $ENCRYPTION_PASSWORD -in fastlane/Certificates/distribution.p12.enc -d -a -out fastlane/Certificates/distribution.p12
 script:
 - ./fastlane/travis.sh
 notifications:
