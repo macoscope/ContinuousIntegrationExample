@@ -1,3 +1,5 @@
+require 'securerandom'
+
 fastlane_version "1.47.0"
 
 default_platform :ios
@@ -7,6 +9,59 @@ platform :ios do
   desc "Runs all the tests"
   lane :test do
     scan(device: "iPhone 6s (9.2)")
+  end
+
+  desc "Submit a new Beta build to Hockey App"
+  lane :beta do
+
+    keychain_name = "ci-example-certs"
+
+    create_keychain(
+      name: keychain_name,
+      default_keychain: true,
+      unlock: true,
+      timeout: 3600,
+      lock_when_sleeps: true,
+      password: SecureRandom.base64
+    )
+
+    # Import distribution certificate
+    import_certificate(
+      certificate_path: "fastlane/Certificates/distribution.p12",
+      certificate_password: ENV["KEY_PASSWORD"],
+      keychain_name: keychain_name
+    )
+
+    sigh(
+      adhoc: true, 
+      username: "arek@macoscope.net",
+      team_id: "XA8U8K5RRK",
+      provisioning_name: "CI Example Ad Hoc",
+      cert_id: "2T3HB2838A"
+    )
+
+    increment_build_number(build_number: number_of_commits)
+
+    # Build
+    gym(
+      configuration: "Ad Hoc",
+      sdk: "iphoneos9.2",
+      clean: true,
+      include_bitcode: false,
+      include_symbols: true,
+      use_legacy_build_api: true,
+      export_method: "enterprise"
+    )
+
+    # Push to Hockey
+    hockey(
+      api_token: ENV["HOCKEY_API_TOKEN"],
+      public_identifier: ENV["HOCKEY_APP_ID"],
+      notify: '0',
+      status: '2',
+      notes: last_git_commit[:message] + "\n(Uploaded automatically via fastlane)"
+    )
+
   end
 end
 

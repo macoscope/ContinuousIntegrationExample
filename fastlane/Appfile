@@ -1,0 +1,13 @@
+app_identifier "net.macoscope.ci-example.app-store"
+apple_id "arek@macoscope.net"
+
+for_platform :ios do
+  for_lane :test do
+    app_identifier "net.macoscope.ci-example.development"
+  end
+
+  for_lane :beta do
+    app_identifier "net.macoscope.ci-example.ad-hoc"
+  end
+end
+
