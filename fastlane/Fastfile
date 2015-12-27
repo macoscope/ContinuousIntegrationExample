@@ -62,6 +62,10 @@ platform :ios do
       notes: last_git_commit[:message] + "\n(Uploaded automatically via fastlane)"
     )
 
+    delete_keychain(
+      name: keychain_name
+    )
+
   end
 end
 
