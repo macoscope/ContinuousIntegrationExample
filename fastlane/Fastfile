@@ -6,6 +6,10 @@ default_platform :ios
 
 platform :ios do
 
+  before_all do
+    ensure_git_status_clean
+  end
+
   desc "Runs all the tests"
   lane :test do
     scan(device: "iPhone 6s (9.2)")
@@ -13,6 +17,10 @@ platform :ios do
 
   desc "Submit a new Beta build to Hockey App"
   lane :beta do
+
+    ensure_git_branch(
+      branch: "develop"
+    )
 
     keychain_name = "ci-example-certs"
 
@@ -60,6 +68,10 @@ platform :ios do
       notify: '0',
       status: '2',
       notes: last_git_commit[:message] + "\n(Uploaded automatically via fastlane)"
+    )
+
+    delete_keychain(
+      name: keychain_name
     )
 
   end

@@ -31,3 +31,6 @@ DerivedData
 # Carthage/Checkouts
 
 Carthage/Build
+
+fastlane/local_config.sh
+fastlane/Certificates/distribution.p12
