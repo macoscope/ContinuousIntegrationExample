@@ -18,6 +18,10 @@ platform :ios do
   desc "Submit a new Beta build to Hockey App"
   lane :beta do
 
+    ensure_git_branch(
+      branch: "develop"
+    )
+
     keychain_name = "ci-example-certs"
 
     create_keychain(
