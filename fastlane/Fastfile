@@ -41,7 +41,7 @@ platform :ios do
       username: "arek@macoscope.net",
       team_id: "XA8U8K5RRK",
       provisioning_name: "CI Example Ad Hoc",
-      cert_id: "2T3HB2838A"
+      cert_id: "XA8U8K5RRK"
     )
 
     increment_build_number(build_number: number_of_commits)
